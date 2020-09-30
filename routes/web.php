@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\ContactFormMailable;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,17 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+
+Route::post('/contact', function (Request $request) {
+    $contact = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required',
+        'message' => 'required',
+    ]);
+
+    Mail::to('charlie@textSupport.com')->send(new ContactFormMailable($contact));
+    return back()->with('success_message', 'We received your message successfully and will get back to you shortly!');
+});

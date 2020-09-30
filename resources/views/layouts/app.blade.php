@@ -33,7 +33,9 @@
             <main>
                 {{ $slot }}
             </main>
-            <livewire:counter />
+            {{-- <livewire:contact-form /> --}}
+            <livewire:data-tables />
+            {{-- <livewire:search-dropdown /> --}}
             <livewire:scripts />
         </div>
 
