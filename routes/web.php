@@ -1,6 +1,8 @@
 <?php
 
 use App\Mail\ContactFormMailable;
+use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +38,8 @@ Route::post('/contact', function (Request $request) {
     Mail::to('charlie@textSupport.com')->send(new ContactFormMailable($contact));
     return back()->with('success_message', 'We received your message successfully and will get back to you shortly!');
 });
+
+
+Route::get('/post/{post}', function (Post $post) {
+    return view('show', compact('post'));
+})->name('post');
