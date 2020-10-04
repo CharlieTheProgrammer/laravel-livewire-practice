@@ -1,0 +1,22 @@
+.btn {
+  @apply inline-block bg-indigo-500 px-5 py-3 rounded-lg shadow-xl uppercase tracking-wider font-semibold text-sm text-yellow-50;
+}
+
+
+.btn:hover {
+  @apply bg-indigo-400;
+}
+
+.btn:active {
+  @apply bg-purple-600;
+}
+
+.btn:focus {
+  @apply outline-none shadow-outline;
+}
+
+@screen sm {
+  .btn {
+    @apply text-base;
+  }
+}
