@@ -18,5 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     ])
     .browserSync({
         proxy: 'livw.test',
-        injectChanges:false
+        injectChanges:false,
+        notify: false
+
     });

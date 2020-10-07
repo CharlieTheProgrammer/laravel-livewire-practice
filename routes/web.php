@@ -3,6 +3,7 @@
 use App\Mail\ContactFormMailable;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('new-welcome');
+    return view('new-welcome-2');
+});
+
+
+Route::get('/workcation', function () {
+    return view('workcation');
+});
+
+Route::get('/card', function () {
+    return view('card');
+});
+
+Route::get('/navigation', function () {
+    return view('navigation');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
